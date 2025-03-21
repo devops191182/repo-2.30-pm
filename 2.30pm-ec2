@@ -11,10 +11,6 @@ Resources:
       Tags:
         - Key: Name
           Value: MyEC2Instance
-		- Key: City
-          Value: Delhi
-		- Key: Consumer
-          Value: abc@gmail.com
 		  
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup

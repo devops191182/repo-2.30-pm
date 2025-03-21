@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro  # Choose the instance type you want
+      ImageId: ami-05716d7e60b53d380  # Replace with the AMI ID for your region
+      KeyName: jha-croma  # Replace with your EC2 key pair name
+      SecurityGroups:
+        - Ref: InstanceSecurityGroup
+      Tags:
+        - Key: Name
+          Value: MyEC2Instance
+
+  InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '22'
+          ToPort: '22'
+          CidrIp: "0.0.0.0/0"  # Open to all IP addresses (for demo purposes)
